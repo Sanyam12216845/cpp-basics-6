@@ -1,0 +1,86 @@
+#include<iostream>
+using namespace std;
+
+//ABSTRACTION
+class Bank{
+	private:
+		int pin;       //private member
+		int balance;  //private members 
+		
+		public:
+			int account ;
+			string name;
+			int amount;
+		void details(){
+			pin=1234;
+			balance=2000;
+			account=12345;
+			name="jyoti";
+			amount=500;
+			
+		}
+		void detailsO(){
+			cout<<"Bank Details:"<<endl;
+			cout<<pin<<endl;
+			cout<<balance<<endl;
+			cout<<account<<endl;
+			cout<<name<<endl;
+			cout<<amount<<endl;
+		}
+			
+};
+
+//ENCAPSULATION
+
+class Thief{
+	private:
+		string name1;
+		int age;
+		string address;
+		int mobile;
+		
+		public:
+			
+		void input(){
+			name1="sanjay";
+			age=50;
+			mobile=123456789;
+			
+			
+		}
+		void output(){
+			cout<<"name is:"<<name1<<endl;
+			cout<<"age is:"<<age<<endl;
+			cout<<"mobile number is :"<<mobile<<endl;
+			
+		}
+			
+			
+		
+};
+class Police : public Thief{      //class police can access thief class details  just by calling its object as it is encapsulated 
+	
+};
+	
+int main(){
+
+	Police t;
+	t.input();
+	t.output();
+	
+	Bank obj;
+	obj.details();
+	obj.detailsO();
+	
+	cout<<"Jyoti is trying to access her account ....."<<endl;
+	cout<<obj.name<<endl;
+	cout<<obj.account<<endl;
+//	cout<<obj.pin<<endl;      you cannot access pin and balance as they are private 
+	cout<<obj.amount<<endl;
+//	cout<<obj.balance<<endl;
+
+
+
+
+return 0;
+}
